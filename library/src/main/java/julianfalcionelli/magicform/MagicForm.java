@@ -45,7 +45,7 @@ public class MagicForm {
         for (FormField formField : mFields) {
             List<FormError> fieldErrors = checkField(formField);
             if (fieldErrors == null || fieldErrors.isEmpty()) {
-                mValidFields.add(formField);
+                addValidField(formField);
             } else {
                 errors.addAll(fieldErrors);
             }
@@ -171,7 +171,6 @@ public class MagicForm {
     public MagicForm addField(FormField formField) {
         if (!mFields.contains(formField)) {
             mFields.add(formField);
-
             initializeFormField(formField, formField.getMode() != null ? formField.getMode() : mMode);
         }
 
